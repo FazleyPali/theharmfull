@@ -1,0 +1,24 @@
+{
+  "id": "10001",
+  "name": "Timothy Lampung",
+  "emails": [
+    {
+      "emailAddress": "timothylampung@gmail.com",
+      "type": "personal"
+    },
+    {
+      "emailAddress": "timothylampung@gmail.com",
+      "type": "personal"
+    }
+  ],
+  "phoneNumbers": [
+    {
+      "number": "019-2533735",
+      "type": "personal"
+    },
+    {
+      "number": "0111-9899892",
+      "type": "bussiness"
+    }
+  ]
+}

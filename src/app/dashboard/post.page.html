@@ -1,0 +1,71 @@
+<td-layout-nav title="Posts " navigationRoute="/">
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span>The New Facebook</span>
+    <span flex></span>
+    <a mat-icon-button matTooltip="Profile">
+      <mat-icon>person</mat-icon>
+    </a>
+    <span>Timothy Lampung</span>
+  </div>
+
+  <div mat-content flex layout-align="center center">
+    <div layout-gt-md="row" layout-align="center">
+      <div flex-gt-md="50" >
+        <mat-card>
+          <mat-card-title>News Feeds</mat-card-title>
+          <mat-card-subtitle>List of posts</mat-card-subtitle>
+          <mat-divider></mat-divider>
+          <mat-list>
+            <ng-template let-postdata let-last="last" ngFor [ngForOf]="postData$ | async">
+              <mat-list-item>
+
+                 <span>
+                  <div>  <!--button-->
+
+                    <mat-icon>perm_identity</mat-icon>
+                 </div>
+
+              </span>
+
+                <span flex="80" layout-gt-xs="row">
+                  <div class="mat-caption tc-grey-700" flex-gt-xs="30">
+                  <h3 mat-line> {{postdata?.title}}</h3>
+                  </div>
+                </span>
+                <!--<div class="mat-caption tc-grey-700"-->
+                <!--flex-gt-xs="50"> {{ phonebook?.name | date:'shortDate' }} </div>-->
+                <span>
+                  <div>  <!--button-->
+                  <button mat-icon-button (click)="viewPost(postdata)">
+                    <mat-icon>perm_identity</mat-icon>
+                  </button></div>
+
+              </span>
+              </mat-list-item>
+              <mat-divider *ngIf="!last"></mat-divider>
+            </ng-template>
+          </mat-list>
+        </mat-card>
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+  <td-layout-footer>
+    <div layout="row" layout-align="start center">
+      <span class="mat-caption">Copyright &copy; 2017 Terang LLP. All rights reserved</span>
+      <span flex></span>
+    </div>
+  </td-layout-footer>
+</td-layout-nav>
+<a mat-fab color="accent" class="mat-fab-bottom-right fixed z-3" (click)="showAddDialog()">
+  <mat-icon>add</mat-icon>
+</a>
+
+

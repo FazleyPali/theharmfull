@@ -1,0 +1,77 @@
+<td-layout-nav title="Phone Book" navigationRoute="/">
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span>Contacts Management System</span>
+    <span flex></span>
+    <a mat-icon-button matTooltip="Profile">
+      <mat-icon>person</mat-icon>
+    </a>
+    <span>Timothy Lampung</span>
+  </div>
+
+
+  <td-layout-card-over>
+    <div layout="row" layout-align="start center" flex="70">
+      <div>
+        <mat-card-title>Asset {{(id$|async)?.id}}</mat-card-title>
+        <mat-card-subtitle>Contacts Detail</mat-card-subtitle>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div layout="column" class="inset" flex>
+
+      <!--asset information-->
+      <h3 mat-line>Contacts Information</h3>
+      <div layout="row" class="mat-padding" flex="30">
+        <div layout="column" flex="">
+          <p class="tc-grey-500">Name</p>
+
+
+          <ng-template let-phonenumber ngFor [ngForOf]="(id$ | async)?.phoneNumbers" let-i="index">
+            <p class="tc-grey-500">{{phonenumber.type | titlecase}} Phone Number</p>
+          </ng-template>
+
+
+          <ng-template let-email ngFor [ngForOf]="(id$ | async)?.emails" let-i="index">
+            <p class="tc-grey-500" >{{email.type | titlecase}} Email</p>
+          </ng-template>
+
+        </div>
+
+        <div layout="column" flex="80">
+          <p>:  {{(id$|async)?.name}}</p>
+          <p>
+
+            <ng-template let-phonenumber ngFor [ngForOf]="(id$ | async)?.phoneNumbers" let-i="index">
+          <p >:  {{phonenumber.phoneNo}} </p>
+          </ng-template> </p>
+
+          <ng-template let-email ngFor [ngForOf]="(id$ | async)?.emails" let-i="index">
+            <p  >: {{email.emailAddress}}</p>
+          </ng-template>
+
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+
+    <mat-card-actions align="end">
+      <button mat-button="" color="primary" (click)="goBack()">Back</button>
+    </mat-card-actions>
+  </td-layout-card-over>
+
+  <td-layout-footer>
+    <div layout="row" layout-align="start center">
+      <span class="mat-caption">Copyright &copy; 2017 Terang LLP. All rights reserved</span>
+      <span flex></span>
+    </div>
+  </td-layout-footer>
+</td-layout-nav>
+
+
+
+
